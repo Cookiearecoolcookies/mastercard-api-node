@@ -22,6 +22,9 @@ OAUTH_SIGNATURE = 'oauth_signature';
 OAUTH_SIGNATURE_METHOD = 'oauth_signature_method';
 OAUTH_TIMESTAMP = 'oauth_timestamp';
 OAUTH_VERSION = 'oauth_version';
+
+const SSL_CERT_FILE = './common/SSLCerts/EnTrust/cacert.pem'
+
 /**
  * Constructor
  * @param consumerKey - consumer key provided by MasterCard
@@ -160,7 +163,7 @@ _doConnect = function(url, requestMethod, authHeader, body, callback){
         'content-type' : 'application/xml;charset=UTF-8',
         'content-length' : body.length
       },
-        cert: FS.readFileSync(process.env.SSL_CERT_FILE)
+        cert: FS.readFileSync(SSL_CERT_FILE)
     };
   } else {
     options = {
@@ -171,7 +174,7 @@ _doConnect = function(url, requestMethod, authHeader, body, callback){
         'Authorization': authHeader,
         'User-Agent': USER_AGENT
       },
-        cert: FS.readFileSync(process.env.SSL_CERT_FILE)
+        cert: FS.readFileSync(SSL_CERT_FILE)
     }
   }
 
