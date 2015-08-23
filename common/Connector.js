@@ -23,7 +23,7 @@ OAUTH_SIGNATURE_METHOD = 'oauth_signature_method';
 OAUTH_TIMESTAMP = 'oauth_timestamp';
 OAUTH_VERSION = 'oauth_version';
 
-const SSL_CERT_FILE = './common/SSLCerts/EnTrust/cacert.pem'
+const SSL_CERT_FILE = './common/SSLCerts/EnTrust/cacert.pem';
 
 /**
  * Constructor
