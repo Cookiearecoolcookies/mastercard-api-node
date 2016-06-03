@@ -22,7 +22,7 @@ describe('AtmLocationService', function(){
     describe('#getAtms()', function() {
         this.timeout(15000);
         it('Retrieve atm locations by numeric postal code', function (done) {
-            service.setCallback(function (response) {
+            service.setCallback(function (error, response) {
 //                console.log(util.inspect(response, false, null));
                 console.log(response);
                 assert(null != response);
@@ -40,7 +40,7 @@ describe('AtmLocationService', function(){
         });
 
         it('Retrieve atm locations by foreign postal code', function (done) {
-            service.setCallback(function (response) {
+            service.setCallback(function (error, response) {
 //                console.log(util.inspect(response, false, null));
                 console.log(response);
                 assert(null != response);
@@ -58,7 +58,7 @@ describe('AtmLocationService', function(){
         });
 
         it('Retrieve atm locations by latitude longitude', function (done) {
-            service.setCallback(function (response) {
+            service.setCallback(function (error, response) {
 //                console.log(util.inspect(response, false, null));
                 console.log(response);
                 assert(null != response);
@@ -78,7 +78,7 @@ describe('AtmLocationService', function(){
         });
 
         it('Retrieve atm locations by address', function (done) {
-            service.setCallback(function (response) {
+            service.setCallback(function (error, response) {
                 console.log(util.inspect(response, false, null));
 //                console.log(response);
 //                assert(null != response);
@@ -96,7 +96,7 @@ describe('AtmLocationService', function(){
         });
 
         it('Retrieve atm locations by city', function (done) {
-            service.setCallback(function (response) {
+            service.setCallback(function (error, response) {
 //                console.log(util.inspect(response, false, null));
                 console.log(response);
                 assert(null != response);
@@ -114,7 +114,7 @@ describe('AtmLocationService', function(){
         });
 
         it('Retrieve atm locations by country subdivision', function (done) {
-            service.setCallback(function (response) {
+            service.setCallback(function (error, response) {
 //                console.log(util.inspect(response, false, null));
                 console.log(response);
                 assert(null != response);
@@ -132,7 +132,7 @@ describe('AtmLocationService', function(){
         });
 
         it('Retrieve atm locations by SUPPORT_EMV_YES', function (done) {
-            service.setCallback(function (response) {
+            service.setCallback(function (error, response) {
 //                console.log(util.inspect(response, false, null));
                 console.log(response);
                 assert(null != response);

@@ -19,7 +19,7 @@ describe('CardMappingService', function() {
     describe('#getCreateMapping()', function () {
         this.timeout(15000);
         it('Create a new card mapping', function (done) {
-            service.setCallback(function (response) {
+            service.setCallback(function (error, response) {
                 console.log(response);
                 assert(response.CreateMapping.RequestId != null);
                 assert(Number(response.CreateMapping.RequestId) > 0);
@@ -59,7 +59,7 @@ describe('CardMappingService', function() {
 //    describe('#getInquireMapping()', function () {
 //        this.timeout(15000);
 //        it('Inquire account mapping details', function (done) {
-//            service.setCallback(function (response) {
+//            service.setCallback(function (error, response) {
 ////                console.log(util.inspect(response, false, null));
 //                console.log(response);
 //                assert(response.InquireMapping.RequestId != null);
@@ -86,11 +86,11 @@ describe('CardMappingService', function() {
 //        this.timeout(15000);
 //        var mapping_id = "";
 //        it('Update a previously created mapping', function (done) {
-//            service.setCallback(function (response) {
+//            service.setCallback(function (error, response) {
 //                console.log(response);
 //                assert(response.UpdateMapping.RequestId != null);
 //                assert(Number(response.UpdateMapping.RequestId) > 0);
-//                service.setCallback(function (response) {
+//                service.setCallback(function (error, response) {
 //                    console.log(response.InquireMapping.Mappings[0].Mapping[0].MappingId);
 //                    mapping_id = response.InquireMapping.Mappings[0].Mapping[0].MappingId;
 //                    done();
@@ -148,7 +148,7 @@ describe('CardMappingService', function() {
 //        this.timeout(15000);
 //        var mapping_id = "";
 //        it('Delete a previously created mapping', function (done) {
-//            service.setCallback(function (response) {
+//            service.setCallback(function (error, response) {
 //                console.log(response);
 //                assert(response.DeleteMapping.RequestId != null);
 //                assert(Number(response.DeleteMapping.RequestId) > 0);

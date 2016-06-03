@@ -22,7 +22,7 @@ describe('MerchantLocationService', function(){
     describe('#getMerchants()', function() {
         this.timeout(15000);
         it('Retrieve merchant locations TOPUP_REPOWER', function (done) {
-            service.setCallback(function (response) {
+            service.setCallback(function (error, response) {
 //                console.log(util.inspect(response, false, null));
                 console.log(response);
                 assert(null != response);
@@ -44,7 +44,7 @@ describe('MerchantLocationService', function(){
         // valid results. Passing of this test implies that PPTC has begun to return
         // valid results and that no SDK changes are needed.
 //        it('Retrieve merchant locations PRODUCTS_PREPAID_TRAVEL_CARD - fail', function (done) {
-//            service.setCallback(function (response) {
+//            service.setCallback(function (error, response) {
 ////                console.log(util.inspect(response, false, null));
 //                console.log(response);
 //                assert(null != response.Merchants.Merchant);
@@ -63,7 +63,7 @@ describe('MerchantLocationService', function(){
 //        });
 
         it('Retrieve merchant locations PRODUCTS_PREPAID_TRAVEL_CARD - pass', function (done) {
-            service.setCallback(function (response) {
+            service.setCallback(function (error, response) {
 //                console.log(util.inspect(response, false, null));
                 console.log(response);
                 assert(response != null);
@@ -82,7 +82,7 @@ describe('MerchantLocationService', function(){
         });
 
         it('Retrieve merchant locations OFFERS_EASYSAVINGS', function (done) {
-            service.setCallback(function (response) {
+            service.setCallback(function (error, response) {
 //                console.log(util.inspect(response, false, null));
                 console.log(response);
                 assert(response != null);
@@ -101,7 +101,7 @@ describe('MerchantLocationService', function(){
         });
 
         it('Retrieve merchant locations ACCEPTANCE_PAYPASS', function (done) {
-            service.setCallback(function (response) {
+            service.setCallback(function (error, response) {
 //                console.log(util.inspect(response, false, null));
                 console.log(response);
                 assert(response != null);
@@ -120,7 +120,7 @@ describe('MerchantLocationService', function(){
         });
 
         it('Retrieve merchant locations FEATURES_CASHBACK', function (done) {
-            service.setCallback(function (response) {
+            service.setCallback(function (error, response) {
 //                console.log(util.inspect(response, false, null));
                 console.log(response);
                 assert(response != null);

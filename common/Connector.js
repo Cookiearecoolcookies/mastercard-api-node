@@ -14,6 +14,7 @@ FS = require('fs');
 URL = require('url');
 QUERYSTRING = require('querystring');
 XML2JS = require('xml2js');
+PATH = require('path');
 
 OAUTH_BODY_HASH = 'oauth_body_hash';
 OAUTH_CONSUMER_KEY = 'oauth_consumer_key';
@@ -23,7 +24,7 @@ OAUTH_SIGNATURE_METHOD = 'oauth_signature_method';
 OAUTH_TIMESTAMP = 'oauth_timestamp';
 OAUTH_VERSION = 'oauth_version';
 
-const SSL_CERT_FILE = './common/SSLCerts/EnTrust/cacert.pem';
+const SSL_CERT_FILE = PATH.join(__dirname, './SSLCerts/EnTrust/cacert.pem');
 
 /**
  * Constructor
@@ -163,7 +164,7 @@ _doConnect = function(url, requestMethod, authHeader, body, callback){
         'content-type' : 'application/xml;charset=UTF-8',
         'content-length' : body.length
       },
-        cert: FS.readFileSync(SSL_CERT_FILE)
+      cert: FS.readFileSync(SSL_CERT_FILE)
     };
   } else {
     options = {
@@ -174,38 +175,42 @@ _doConnect = function(url, requestMethod, authHeader, body, callback){
         'Authorization': authHeader,
         'User-Agent': USER_AGENT
       },
-        cert: FS.readFileSync(SSL_CERT_FILE)
+      cert: FS.readFileSync(SSL_CERT_FILE)
     }
   }
 
-    options.agent = new HTTPS.Agent(options);
+  options.agent = new HTTPS.Agent(options);
 
   var request = HTTPS.request(options, function(response){
-    var retBody = '';
+    var retBody = [];
     var statusCode = response.statusCode;
     response.on('data', function(chunk){
-      retBody += chunk;
+      retBody.push(chunk);
     }).on('end', function(){
-      _checkResponse(retBody, statusCode, callback);
+      var contentType = response.headers['content-type'] || '';
+
+      _checkResponse(retBody.join(''), statusCode, contentType, callback);
     });
   }).on('error', function(error){
-      throw new Error(error);
-    });
+      callback(error);
+  });
 
-    if (body) {
-        request.write(body);
-    }
+  if (body) {
+    request.write(body);
+  }
   request.end();
 };
 
-_checkResponse = function(body, statusCode, callback){
+_checkResponse = function(body, statusCode, contentType, callback){
   if (statusCode > ERROR_STATUS_BOUNDARY){
-    throw new Error(body);
+    callback(new Error(body));
   } else {
+    if (contentType.indexOf('json') !== -1) {
+      return callback(null, JSON.parse(body));
+    } else {
       body = namespaceUtil.RemoveNamespace(body);
-    PARSE_STRING(body, function(err, result){
-      callback(result);
-    });
+      PARSE_STRING(body, callback);
+    }
   }
 };
 

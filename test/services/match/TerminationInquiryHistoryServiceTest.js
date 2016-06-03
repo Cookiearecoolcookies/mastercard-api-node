@@ -20,7 +20,7 @@ describe('TerminationInquiryHistoryService', function() {
     describe('#getTerminationHistoryInquiry()', function () {
         this.timeout(15000);
         it('Test TerminationInquiryHistoryService', function (done) {
-            service.setCallback(function (response) {
+            service.setCallback(function (error, response) {
                 console.log(response);
                 assert(response.TerminationInquiry.TransactionReferenceNumber != null);
                 assert(response.TerminationInquiry.TerminatedMerchant != null);

@@ -20,7 +20,7 @@ describe('CountrySubdivisionMerchantLocationService', function(){
 
     describe('#getCountrySubdivisions()', function() {
         it('Retrieve merchant country subdivisions ACCEPTANCE_PAYPASS', function (done) {
-            service.setCallback(function (response) {
+            service.setCallback(function (error, response) {
 //                console.log(util.inspect(response, false, null));
                 console.log(response);
                 assert(response.CountrySubdivisions != null);
@@ -36,7 +36,7 @@ describe('CountrySubdivisionMerchantLocationService', function(){
         });
 
         it('Retrieve merchant country subdivisions OFFERS_EASYSAVINGS', function (done) {
-            service.setCallback(function (response) {
+            service.setCallback(function (error, response) {
 //                console.log(util.inspect(response, false, null));
                 console.log(response);
                 assert(response.CountrySubdivisions != null);
@@ -52,7 +52,7 @@ describe('CountrySubdivisionMerchantLocationService', function(){
         });
 
         it('Retrieve merchant country subdivisions PRODUCTS_PREPAID_TRAVEL_CARD', function (done) {
-            service.setCallback(function (response) {
+            service.setCallback(function (error, response) {
 //                console.log(util.inspect(response, false, null));
                 console.log(response);
                 assert(response.CountrySubdivisions != null);
@@ -68,7 +68,7 @@ describe('CountrySubdivisionMerchantLocationService', function(){
         });
 
         it('Retrieve merchant country subdivisions TOPUP_REPOWER', function (done) {
-            service.setCallback(function (response) {
+            service.setCallback(function (error, response) {
 //                console.log(util.inspect(response, false, null));
                 console.log(response);
                 assert(response.CountrySubdivisions != null);

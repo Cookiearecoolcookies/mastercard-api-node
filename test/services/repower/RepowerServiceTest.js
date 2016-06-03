@@ -21,7 +21,7 @@ var tranRef = 2997999034810154995;
 //    describe('#getRepower()', function () {
 //        this.timeout(15000);
 //        it('Successful Repower', function (done) {
-//            service.setCallback(function (response) {
+//            service.setCallback(function (error, response) {
 //                console.log(util.inspect(response, false, null));
 ////                console.log(response);
 ////                assert(response.Repower.RequestId != null);
@@ -72,7 +72,7 @@ describe('RepowerReversalService', function() {
     describe('#getRepowerReversal()', function () {
         this.timeout(15000);
         it('Successful RepowerReversal', function (done) {
-            service.setCallback(function (response) {
+            service.setCallback(function (error, response) {
                 console.log(util.inspect(response, false, null));
 //                console.log(response);
 //                assert(response.RepowerReversal.RequestId != null);

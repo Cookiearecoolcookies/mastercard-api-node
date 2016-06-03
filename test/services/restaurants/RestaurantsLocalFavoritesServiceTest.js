@@ -17,7 +17,7 @@ describe('RestaurantsLocalFavoritesService', function(){
 
     describe('#getRestaurantsByLatLon()', function(){
         it('Retrieves Available Restaurants', function(done){
-            service.setCallback(function(response){
+            service.setCallback(function (error, response) {
                 console.log(response);
                 assert(response.Restaurants.Restaurant.length > 0);
                 done();

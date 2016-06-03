@@ -24,8 +24,3 @@ build/Release
 # see https://npmjs.org/doc/faq.html#Should-I-check-my-node_modules-folder-into-git
 node_modules
 .idea
-.idea/encodings.xml
-.idea/jsLibraryMappings.xml
-.idea/mc-open-api-14-node.iml
-.idea/misc.xml
-.idea/workspace.xml
