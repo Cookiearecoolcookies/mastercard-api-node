@@ -19,7 +19,7 @@ describe('TransferService', function() {
     describe('#getTransfer()', function () {
         this.timeout(15000);
 //        it('Transfer money from a sending card account to a receiving card', function (done) {
-//            service.setCallback(function (response) {
+//            service.setCallback(function (error, response) {
 //                console.log(util.inspect(response, false, null));
 ////                console.log(response);
 ////                assert(Number(response.Transfer.TransactionReference) > 0);
@@ -90,7 +90,7 @@ describe('TransferService', function() {
 //        });
 
 //        it('Transfer money from a sending mapped account to a receiving card', function (done) {
-//            service.setCallback(function (response) {
+//            service.setCallback(function (error, response) {
 //                console.log(util.inspect(response, false, null));
 ////                console.log(response);
 ////                assert(Number(response.Transfer.TransactionReference) > 0);
@@ -152,7 +152,7 @@ describe('TransferService', function() {
 //        });
 
 //        it('On Us PaymentRequest to a receiving card', function (done) {
-//            service.setCallback(function (response) {
+//            service.setCallback(function (error, response) {
 //                console.log(util.inspect(response, false, null));
 ////                console.log(response);
 ////                assert(Number(response.Transfer.TransactionReference) > 0);
@@ -202,7 +202,7 @@ describe('TransferService', function() {
 //        });
 
         it('On Us PaymentRequest to a receiving mapped account', function (done) {
-            service.setCallback(function (response) {
+            service.setCallback(function (error, response) {
                 console.log(util.inspect(response, false, null));
 //                console.log(response);
 //                assert(Number(response.Transfer.TransactionReference) > 0);

@@ -20,7 +20,7 @@ describe('TerminationInquiryService', function() {
     describe('#getTerminationInquiry()', function () {
         this.timeout(15000);
         it('Test TerminationInquiryService', function (done) {
-            service.setCallback(function (response) {
+            service.setCallback(function (error, response) {
                 console.log(response);
                 assert(response.TerminationInquiry.Ref != null);
                 console.log("Ref = " + irnUtil.GetReferenceNumber(response.TerminationInquiry.Ref));

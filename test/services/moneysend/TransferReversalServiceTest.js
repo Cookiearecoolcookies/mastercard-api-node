@@ -19,7 +19,7 @@ describe('TransferReversalService', function() {
     describe('#getTransferReversal()', function () {
         this.timeout(15000);
         it('Reverse a previous TransferRequest', function (done) {
-            service.setCallback(function (response) {
+            service.setCallback(function (error, response) {
                 console.log(util.inspect(response, false, null));
 //                console.log(response);
 //                assert(Number(response.Transfer.TransactionReference) > 0);

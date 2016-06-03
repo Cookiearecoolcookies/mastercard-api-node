@@ -20,7 +20,7 @@ describe('CountryMerchantLocationService', function(){
 
     describe('#getCountries()', function() {
         it('Retrieve merchant countries', function (done) {
-            service.setCallback(function (response) {
+            service.setCallback(function (error, response) {
 //                console.log(util.inspect(response, false, null));
                 console.log(response);
                 assert(response != null);

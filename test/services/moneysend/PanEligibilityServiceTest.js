@@ -19,7 +19,7 @@ describe('PanEligibilityService', function() {
     describe('#getPanEligibility()', function () {
         this.timeout(15000);
         it('Determine if an account number is eligible for sending and receiving - true', function (done) {
-            service.setCallback(function (response) {
+            service.setCallback(function (error, response) {
 //                console.log(util.inspect(response, false, null));
                 console.log(response);
                 assert(response.PanEligibility.SendingEligibility[0].Eligible == 'true');
@@ -38,7 +38,7 @@ describe('PanEligibilityService', function() {
 
         it('Determine if an account number is eligible for sending - false', function (done) {
             setTimeout(done, 15000);
-            service.setCallback(function (response) {
+            service.setCallback(function (error, response) {
 //                console.log(util.inspect(response, false, null));
                 console.log(response);
                 assert(response.PanEligibility.SendingEligibility[0].Eligible == 'false');
@@ -55,7 +55,7 @@ describe('PanEligibilityService', function() {
 
         it('Determine if an account number is eligible for sending - false', function (done) {
             setTimeout(done, 15000);
-            service.setCallback(function (response) {
+            service.setCallback(function (error, response) {
 //                console.log(util.inspect(response, false, null));
                 console.log(response);
                 assert(response.PanEligibility.ReceivingEligibility[0].Eligible == 'false');

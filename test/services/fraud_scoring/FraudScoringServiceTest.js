@@ -19,7 +19,7 @@ describe('FraudScoringService', function() {
     describe('#getScoreLookup()', function () {
         this.timeout(15000);
         it('Test low fraud scoring single transaction match', function (done) {
-            service.setCallback(function (response) {
+            service.setCallback(function (error, response) {
                 console.log(response);
                 assert(matchIndicatorStatus.single_transaction_match == Number(response.ScoreLookup.ScoreResponse[0].MatchIndicator));
                 done();
@@ -45,7 +45,7 @@ describe('FraudScoringService', function() {
         });
 
         it('Test mid fraud scoring single transaction match', function (done) {
-            service.setCallback(function (response) {
+            service.setCallback(function (error, response) {
                 console.log(response);
                 assert(matchIndicatorStatus.multiple_trans_identical_card_match == Number(response.ScoreLookup.ScoreResponse[0].MatchIndicator));
                 done();
@@ -71,7 +71,7 @@ describe('FraudScoringService', function() {
         });
 
         it('Test high fraud scoring single transaction match', function (done) {
-            service.setCallback(function (response) {
+            service.setCallback(function (error, response) {
                 console.log(response);
                 assert(matchIndicatorStatus.multiple_trans_differing_cards_match == Number(response.ScoreLookup.ScoreResponse[0].MatchIndicator));
                 done();
@@ -97,7 +97,7 @@ describe('FraudScoringService', function() {
         });
 
         it('Test no match found', function (done) {
-            service.setCallback(function (response) {
+            service.setCallback(function (error, response) {
                 console.log(response);
                 assert(matchIndicatorStatus.no_match_found == Number(response.ScoreLookup.ScoreResponse[0].MatchIndicator));
                 done();
