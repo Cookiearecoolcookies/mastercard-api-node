@@ -17,7 +17,7 @@ describe('CountriesLocalFavoritesService', function(){
 
     describe('#getCountries()', function(){
         it('Retrieves Available Countries', function(done){
-            service.setCallback(function(response){
+            service.setCallback(function (error, response) {
                 console.log(response);
                 assert(response.Countries.Country.length > 0);
                 done();

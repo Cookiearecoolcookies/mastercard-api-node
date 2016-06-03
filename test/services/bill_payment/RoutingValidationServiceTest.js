@@ -87,7 +87,7 @@ describe('RoutingValidationService', function(){
         });
 
         it('Invalid BillerID', function(done){
-            service.setCallback(function(response){
+            service.setCallback(function(error, response){
                 console.log(response);
                 assert('Invalid BillerID' == response.BillPayAccountValidation.ResponseString);
                 done();
@@ -110,7 +110,7 @@ describe('RoutingValidationService', function(){
         });
 
         it('Inactive BillerID', function(done){
-            service.setCallback(function(response){
+            service.setCallback(function(error, response){
                 console.log(response);
                 assert('BillerID is not active' == response.BillPayAccountValidation.ResponseString);
                 done();
@@ -133,7 +133,7 @@ describe('RoutingValidationService', function(){
         });
 
         it('Exceeds Transaction Amount', function(done){
-            service.setCallback(function(response){
+            service.setCallback(function (error, response) {
                 console.log(response);
                 assert('Transaction Amount exceeds BillerID maximum' == response.BillPayAccountValidation.ResponseString);
                 done();

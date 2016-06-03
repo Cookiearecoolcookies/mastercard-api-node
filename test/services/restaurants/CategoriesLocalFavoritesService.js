@@ -17,7 +17,7 @@ describe('CategoriesLocalFavoritesService', function(){
 
     describe('#getCategories()', function(){
         it('Retrieves Available Categories', function(done){
-            service.setCallback(function(response){
+            service.setCallback(function (error, response) {
                 console.log(response);
                 assert(response.Categories.Category[0] == 'AMERICAN');
                 assert(response.Categories.Category.length > 0);

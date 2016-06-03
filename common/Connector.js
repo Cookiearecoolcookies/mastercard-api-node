@@ -14,7 +14,7 @@ FS = require('fs');
 URL = require('url');
 QUERYSTRING = require('querystring');
 XML2JS = require('xml2js');
-path = require('path');
+PATH = require('path');
 
 OAUTH_BODY_HASH = 'oauth_body_hash';
 OAUTH_CONSUMER_KEY = 'oauth_consumer_key';
@@ -24,7 +24,7 @@ OAUTH_SIGNATURE_METHOD = 'oauth_signature_method';
 OAUTH_TIMESTAMP = 'oauth_timestamp';
 OAUTH_VERSION = 'oauth_version';
 
-const SSL_CERT_FILE = path.join(__dirname, './SSLCerts/EnTrust/cacert.pem');
+const SSL_CERT_FILE = PATH.join(__dirname, './SSLCerts/EnTrust/cacert.pem');
 
 /**
  * Constructor
