@@ -17,7 +17,7 @@ describe('LostStolenService', function(){
 
   describe('#getAccount()', function(){
     it('Retrieves Stolen Account Number', function(done){
-      service.setCallback(function(response){
+      service.setCallback(function (error, response) {
         console.log(response);
         assert('true' == response.Account.Status[0]);
         assert('true' == response.Account.Listed[0]);
@@ -29,7 +29,7 @@ describe('LostStolenService', function(){
     });
 
     it('Retrieves Fraud Account Number', function(done){
-      service.setCallback(function(response){
+      service.setCallback(function (error, response) {
         console.log(response);
         assert('true' == response.Account.Status[0]);
         assert('true' == response.Account.Listed[0]);
@@ -41,7 +41,7 @@ describe('LostStolenService', function(){
     });
 
     it('Retrieves Lost Account Number', function(done){
-      service.setCallback(function(response){
+      service.setCallback(function (error, response) {
         console.log(response);
         assert('true' == response.Account.Status[0]);
         assert('true' == response.Account.Listed[0]);
@@ -53,7 +53,7 @@ describe('LostStolenService', function(){
     });
 
     it('Retrieves Capture Card Account Number', function(done){
-      service.setCallback(function(response){
+      service.setCallback(function (error, response) {
         console.log(response);
         assert('true' == response.Account.Status[0]);
         assert('true' == response.Account.Listed[0]);
@@ -65,7 +65,7 @@ describe('LostStolenService', function(){
     });
 
     it('Retrieves Unauthorized Use Account Number', function(done){
-      service.setCallback(function(response){
+      service.setCallback(function (error, response) {
         console.log(response);
         assert('true' == response.Account.Status[0]);
         assert('true' == response.Account.Listed[0]);
@@ -77,7 +77,7 @@ describe('LostStolenService', function(){
     });
 
     it('Retrieves Counterfeit Account Number', function(done){
-      service.setCallback(function(response){
+      service.setCallback(function (error, response) {
         console.log(response);
         assert('true' == response.Account.Status[0]);
         assert('true' == response.Account.Listed[0]);
@@ -89,7 +89,7 @@ describe('LostStolenService', function(){
     });
 
     it('Retrieves Unlisted Account Number', function(done){
-      service.setCallback(function(response){
+      service.setCallback(function (error, response) {
         console.log(response);
         assert('true' == response.Account.Status[0]);
         assert('false' == response.Account.Listed[0]);

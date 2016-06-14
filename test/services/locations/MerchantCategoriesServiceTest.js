@@ -17,7 +17,7 @@ describe('MerchantCategoriesService', function(){
 
     describe('#getCategories()', function() {
         it('Retrieve merchant categories', function (done) {
-            service.setCallback(function (response) {
+            service.setCallback(function (error, response) {
                 console.log(response);
                 assert(null != response);
                 assert(0 < response.Categories.Category.length);

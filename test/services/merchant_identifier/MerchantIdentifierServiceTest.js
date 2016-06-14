@@ -18,7 +18,7 @@ describe('MerchantIdentifierService', function(){
     describe('#getMerchantIds()', function() {
         this.timeout(15000);
         it('Retrieve merchant ids no Type', function (done) {
-            service.setCallback(function (response) {
+            service.setCallback(function (error, response) {
                 console.log(response);
                 assert(null != response.MerchantIds.ReturnedMerchants);
                 assert(null != response.MerchantIds.Message);
@@ -32,7 +32,7 @@ describe('MerchantIdentifierService', function(){
         });
 
         it('Retrieve merchant ids EXACTMATCH', function (done) {
-            service.setCallback(function (response) {
+            service.setCallback(function (error, response) {
                 console.log(response);
                 assert(null != response.MerchantIds.ReturnedMerchants);
                 assert(null != response.MerchantIds.Message);
@@ -47,7 +47,23 @@ describe('MerchantIdentifierService', function(){
         });
 
         it('Retrieve merchant ids FUZZYMATCH', function (done) {
-            service.setCallback(function (response) {
+            service.setCallback(function (error, response) {
+                console.log(response);
+                assert(null != response.MerchantIds.ReturnedMerchants);
+                assert(null != response.MerchantIds.Message);
+                done();
+            });
+            var options =
+            {
+                MerchantId: merchantId = "DIRECTSATELLITETV",
+                Type: type = "FuzzyMatch"
+            };
+            var merchantIds = service.getMerchantIds(options);
+        });
+
+        it('Retrieve merchant ids FUZZYMATCH with json', function (done) {
+            merchantIdentifierServiceClass.setResponseType('json');
+            service.setCallback(function (error, response) {
                 console.log(response);
                 assert(null != response.MerchantIds.ReturnedMerchants);
                 assert(null != response.MerchantIds.Message);

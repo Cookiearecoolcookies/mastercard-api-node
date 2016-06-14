@@ -19,7 +19,7 @@ describe('CountrySubdivisionAtmLocationService', function(){
 
     describe('#getCountrySubdivisions()', function() {
         it('Retrieve atm country subdivisions', function (done) {
-            service.setCallback(function (response) {
+            service.setCallback(function (error, response) {
 //                console.log(util.inspect(response, false, null));
                 console.log(response);
                 assert(response.CountrySubdivisions != null);

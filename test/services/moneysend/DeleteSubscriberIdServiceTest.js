@@ -19,7 +19,7 @@ describe('DeleteSubscriberIdService', function() {
     describe('#getDeleteSubscriberId()', function () {
         this.timeout(15000);
         it('Delete a subscribers ID', function (done) {
-            service.setCallback(function (response) {
+            service.setCallback(function (error, response) {
 //                console.log(util.inspect(response, false, null));
                 console.log(response);
                 assert(response.DeleteSubscriberId.RequestId != null);

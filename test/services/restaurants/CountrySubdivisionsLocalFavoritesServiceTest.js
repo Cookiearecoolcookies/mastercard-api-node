@@ -17,7 +17,7 @@ describe('CountrySubdivisionsLocalFavoritesService', function(){
 
     describe('#getCountrySubdivisions()', function(){
         it('Retrieves Available Country Subdivisions', function(done){
-            service.setCallback(function(response){
+            service.setCallback(function (error, response) {
                 console.log(response);
                 assert(response.CountrySubdivisions.CountrySubdivision.length > 0);
                 done();
